@@ -1,0 +1,16 @@
+.footer {
+    padding: 40px 60px;
+    border-top: 1px solid #e5e0da;
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    background: #f7f5f2;
+}
+
+.brand {
+    font-size: 22px;
+}
+
+.copyright {
+    color: #777;
+}

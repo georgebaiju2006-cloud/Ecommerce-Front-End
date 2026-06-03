@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ :host {
+    display: block;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'DM Sans', Roboto, sans-serif;
+}
+
+.auth-container {
+    display: flex;
+    min-height: 100vh;
+    background: white;
+}
+
+
+/* Left Side - Brand Section with Gradient Background */
+
+.brand-section {
+    flex: 1;
+    background: linear-gradient(135deg, #f5f2ee 0%, #e8e4df 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    overflow: hidden;
+}
+
+
+/* Add subtle pattern overlay */
+
+.brand-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 20% 40%, rgba(200, 169, 110, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(200, 169, 110, 0.03) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+
+/* Add decorative circles like Claude had */
+
+.brand-section::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 1px solid rgba(200, 169, 110, 0.1);
+    top: -100px;
+    right: -100px;
+}
+
+.brand-content {
+    max-width: 450px;
+    position: relative;
+    z-index: 1;
+}
+
+.brand-name {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.brand-tagline {
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.brand-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a4a4a;
+    margin-bottom: 3rem;
+}
+
+.brand-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 1.5rem;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.brand-footer p {
+    margin-bottom: 0.25rem;
+}
+
+
+/* Right Side - Auth Section */
+
+.auth-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 2rem;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 450px;
+}
+
+
+/* Toggle Buttons */
+
+.toggle-buttons {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    padding: 0.75rem 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #999;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.toggle-btn.active {
+    color: #1a1a1a;
+}
+
+.toggle-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #c8a96e;
+}
+
+
+/* Forms */
+
+.form-panel {
+    display: none;
+}
+
+.form-panel.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h3 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.form-subtitle {
+    color: #999;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #999;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.875rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    background: #fafafa;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #c8a96e;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(200, 169, 110, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #ccc;
+}
+
+.password-input {
+    position: relative;
+}
+
+.password-input input {
+    padding-right: 70px;
+}
+
+.show-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+
+.submit-btn:hover {
+    background: #333;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .auth-container {
+        flex-direction: column;
+    }
+    .brand-section {
+        padding: 2rem;
+        min-height: 250px;
+    }
+    .brand-tagline {
+        font-size: 2rem;
+    }
+    .brand-name {
+        font-size: 2rem;
+    }
+    .auth-section {
+        padding: 2rem 1.5rem;
+    }
+}
